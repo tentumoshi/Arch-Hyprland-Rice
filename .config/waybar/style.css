@@ -1,0 +1,118 @@
+@define-color highlight rgba(117, 241, 250, 1);
+@define-color dark-9 rgba(24, 24, 27, 1);
+@define-color dark-8 rgba(39, 39, 42, 1);
+@define-color dark-7 rgba(63, 63, 70, 1);
+@define-color dark-6 rgba(82, 82, 91, 1);
+@define-color dark-5 rgba(113, 113, 122, 1);
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: rgba(19, 17, 17, 0.6); 
+  color: #E8EAED;
+  border-radius: 30px;
+}
+
+#workspaces button {
+  padding: 2px;
+  margin: 7px 0px 7px 15px;
+  background: transparent;
+  border-radius: 2px;
+  color: white;
+}
+
+#workspaces button.active { 
+  background-color:#72C7B8;
+  color: #0d0e0f;
+  font-weight: 700;
+}
+
+#submap,
+#battery,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#volume {
+  border-radius: 8px;
+  padding: 5px 8px;
+  /* background: @dark-8; */
+  margin: 5px 10px 5px 0px;
+  /* color: #72C7B8; */
+}
+
+#network,
+#cpu,
+#memory{
+  color: #72C7B8;
+}
+
+#submap,
+#workspaces button.urgent {
+  background: rgb(224, 108, 117);
+  color: #E8EAED;
+}
+
+#pulseaudio-slider {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 8px;
+}
+
+#pulseaudio-slider slider {
+  all: unset;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: #90b3b3;
+}
+
+#pulseaudio-slider trough {
+  min-height: 8px;
+  min-width: 75px;
+  border-radius: 5px;
+  background: @dark-7;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background: rgb(224, 229, 229);
+}
+
+tooltip {
+  background: @dark-9;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: white;
+}
+
+/* media player at the left side of waybar */
+
+#media {
+  color: #72C7B8;
+  margin: 7px 0px 7px 80px;
+}
+
+#custom-media-animation {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+#custom-media-now-playing {
+  margin-right: 10px;
+}
+
+#custom-media-time {
+  color: rgba(245, 245, 245, 0.686);
+  font-size: 14px;
+}

@@ -1,0 +1,15 @@
+.Root__globalNav,
+.main-yourLibraryX-entryPoints,
+.Root__main-view,
+.main-nowPlayingBar-container,
+.Root__right-sidebar:has(aside:not(:empty)) {
+    border-color: #72C7B8 !important;
+}
+
+.Root__globalNav::before,
+.Root__nav-bar .main-yourLibraryX-entryPoints::before,
+.Root__main-view::before,
+.main-nowPlayingBar-container::before,
+.Root__right-sidebar:has(aside:not(:empty))::before {
+    color: #72C7B8 !important;
+}
