@@ -9,5 +9,4 @@ selection-foreground = E8EAED
 background-opacity = 0.7
 background-opacity-cells = true
 
-# Tokyo Night-ish
-background = #18181b
+

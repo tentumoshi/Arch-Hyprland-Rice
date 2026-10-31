@@ -82,7 +82,7 @@ hl.env("HYPRCURSOR_SIZE", "30")
 -----------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
+-- Please note permission changes here require a Hyprland restart and are not applied on-the-fly  
 -- for security reasons
 
 -- hl.config({
@@ -140,8 +140,8 @@ hl.config({
         blur = {
             enabled   = true,
             size      = 2,
-            passes    = 2,
-            vibrancy  = 0.1696,
+            passes    = 1,
+            vibrancy  = 0.2,
         },
     },
 
@@ -273,6 +273,8 @@ hl.device({
 })
 
 
+
+
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -333,13 +335,24 @@ hl.bind(mainMod .. " + equal", function()
 end)
 
 
-
 --PRINT SCREEN BINDS
 -- PrtSc: whole screen -> Satty -> Screenshots folder
-hl.bind("PRINT", hl.dsp.exec_cmd('grim - | satty --filename - --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%I-%M-%S).png"'))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd('grim - | satty --filename - --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%I-%M-%S).png"'))
 
 -- Shift + PrtSc: select region -> Satty -> Screenshots folder
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd('grim -g "$(slurp)" - | satty --filename - --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%I-%M-%S).png"'))
+hl.bind(secondMod .. " + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | satty --filename - --output-filename "$HOME/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%I-%M-%S).png"'))
+
+--BRIGHTNESS CONTROL BINDS
+hl.bind(
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd("brightnessctl set +5%")
+)
+
+hl.bind(
+    "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd("brightnessctl set 5%-")
+)
+
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -356,8 +369,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -456,4 +469,11 @@ hl.window_rule({
     name = "vscode-transparency",
     match = { class = "^code$" },
     opacity = "0.7 override",
+})
+
+
+hl.window_rule({
+    name = "chatgpt-transparency",
+    match = { class = "^Chatgpt$" },
+    opacity = "0.92 override",
 })
